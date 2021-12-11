@@ -1,8 +1,9 @@
-import { handler } from "@framework/cart/use-add-item"
-
+import { useHook } from "@common/utils/use-hook";
 
 const useAddItem = () => {
-  return handler.useHook()
-}
+  const hook = useHook((hooks) => hooks.cart.useAddItem);
 
-export default useAddItem
+  return hook.useHook({ fetch: hook.fetcher });
+};
+
+export default useAddItem;

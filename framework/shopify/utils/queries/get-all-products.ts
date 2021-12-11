@@ -32,7 +32,7 @@ const productConnection = `
       }
     }
   }
-`
+`;
 
 const getAllProductsQuery = `
   query getAllProducts($first: Int = 250) {
@@ -40,6 +40,6 @@ const getAllProductsQuery = `
       ${productConnection}
     }
   }
-`
+`;
 
-export default getAllProductsQuery
+export default getAllProductsQuery;
