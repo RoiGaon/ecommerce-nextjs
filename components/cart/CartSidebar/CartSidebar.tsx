@@ -1,16 +1,18 @@
-import { FC } from 'react'
-import { Bag, Cross } from '@components/icons'
-import cn from "classnames"
-import { useUI } from '@components/ui/context'
+import { FC } from "react";
+import { Bag, Cross } from "@components/icons";
+import cn from "classnames";
+import { useUI } from "@components/ui/context";
+import useCart from "@common/cart/use-cart";
 
 const CartSidebar: FC = () => {
-  const isEmpty = true
-  const { closeSidebar } = useUI()
+  const isEmpty = true;
+  const { closeSidebar } = useUI();
+  const cart = useCart();
+  console.log(cart);
 
-  const rootClass = cn(
-    "h-full flex flex-col",
-    { "bg-secondary text-secondary": isEmpty }
-  )
+  const rootClass = cn("h-full flex flex-col", {
+    "bg-secondary text-secondary": isEmpty,
+  });
 
   return (
     <div className={rootClass}>
@@ -39,11 +41,10 @@ const CartSidebar: FC = () => {
             Biscuit oat cake wafer icing ice cream tiramisu pudding cupcake.
           </p>
         </div>
-      ) :
+      ) : (
         <>
           <div className="px-4 sm:px-6 flex-1">
-            <h2
-              className="pt-1 pb-4 text-2xl leading-7 font-bold text-base tracking-wide inline-block">
+            <h2 className="pt-1 pb-4 text-2xl leading-7 font-bold text-base tracking-wide inline-block">
               My Cart
             </h2>
             <ul className="py-6 space-y-6 sm:py-0 sm:space-y-0 sm:divide-y sm:divide-accents-3 border-t border-accents-3">
@@ -73,16 +74,16 @@ const CartSidebar: FC = () => {
             </div>
             <button
               onClick={() => {
-                alert("Going to checkout!")
+                alert("Going to checkout!");
               }}
             >
               Proceed to Checkout
             </button>
           </div>
         </>
-      }
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default CartSidebar
+export default CartSidebar;
