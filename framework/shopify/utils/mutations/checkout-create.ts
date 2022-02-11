@@ -1,5 +1,5 @@
 const checkoutCreate = `
-mutation checkoutCreate($input: checkoutCreateInput = {}) {
+mutation checkoutCreate($input: CheckoutCreateInput = {}) {
   checkoutCreate(input: $input) {
     checkoutUserErrors {
         field
