@@ -1,3 +1,4 @@
+import React from "react";
 import useCart from "@common/cart/use-cart";
 import { checkoutCreate, getCheckoutQuery } from "@framework/utils";
 
@@ -19,9 +20,14 @@ export const handler = {
     return checkout;
   },
   useHook: ({ useData }: any) => {
-    const data = useData();
-    return {
-      data,
-    };
+    const data = useData({
+      swrOptions: {
+        revalidateOnFocus: false,
+      },
+    });
+
+    return React.useMemo(() => {
+      return data;
+    }, [data]);
   },
 };
