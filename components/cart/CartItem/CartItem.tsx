@@ -5,6 +5,7 @@ import s from "./CartItem.module.css";
 import { Trash, Plus, Minus } from "@components/icons";
 import { LineItem } from "@common/types/cart";
 import { Swatch } from "@components/product";
+import useRemoveItem from "@framework/cart/use-remove-item";
 
 const CartItem = ({
   item,
@@ -13,8 +14,10 @@ const CartItem = ({
   item: LineItem;
   currencyCode: string;
 }) => {
+  const removeItem = useRemoveItem();
   const price = item.variant.price! * item.quantity || 0;
   const { options } = item;
+
   return (
     <li
       className={cn("flex flex-row space-x-8 py-8", {
@@ -88,7 +91,10 @@ const CartItem = ({
         <span>
           {price} {currencyCode}
         </span>
-        <button onClick={() => {}} className="flex justify-end outline-none">
+        <button
+          onClick={async () => removeItem({ id: item.id })}
+          className="flex justify-end outline-none"
+        >
           <Trash />
         </button>
       </div>
