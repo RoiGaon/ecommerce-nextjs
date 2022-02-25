@@ -43,14 +43,17 @@ export const handler: SWRHook<UseCartHookDescriptor> = {
   useHook:
     ({ useData }) =>
     () => {
-      const data = useData({
+      const resilt = useData({
         swrOptions: {
           revalidateOnFocus: false,
         },
       });
 
       return React.useMemo(() => {
-        return data;
-      }, [data]);
+        return {
+          ...resilt,
+          isEmpty: (resilt?.data?.lineItems.length ?? 0) <= 0,
+        };
+      }, [resilt]);
     },
 };

@@ -50,12 +50,16 @@ export type UseDataContext = {
 
 export type UseData<Data> = (context: UseDataContext) => Data;
 
+export type SWRHookResponse<Data> = SWRResponse<Data, any> & {
+  isEmpty: boolean;
+};
+
 export type SWRHook<H extends HookDescriptor = any> = {
   fetcherOptions: HookFetcherOptions;
   fetcher: HookFetcherFn<H["fetcherInput"], H["fetcherOutput"], H["data"]>;
   useHook(context: {
-    useData: UseData<SWRResponse<H["data"], any>>;
-  }): () => SWRResponse<H["data"], any>;
+    useData: UseData<SWRHookResponse<H["data"]>>;
+  }): () => SWRHookResponse<H["data"]>;
 };
 
 export type Hook = MutationHook | SWRHook;
