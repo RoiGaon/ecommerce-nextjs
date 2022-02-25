@@ -10,12 +10,16 @@ import {
 
 const checkoutCreate = async (
   fetch: ApiFetcher<{ checkoutCreate: CheckoutCreatePayload }>
-): Promise<Maybe<Checkout | undefined>> => {
+): Promise<Checkout> => {
   const { data } = await fetch({
     query: checkoutCreateMutation,
   });
 
   const { checkout } = data.checkoutCreate;
+
+  if (!checkout) {
+    throw new Error("checkout cannot be created!");
+  }
 
   const checkoutId = checkout?.id;
 
