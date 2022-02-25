@@ -55,7 +55,7 @@ export type SWRHook<H extends HookDescriptor = any> = {
   fetcher: HookFetcherFn<H["fetcherInput"], H["fetcherOutput"], H["data"]>;
   useHook(context: {
     useData: UseData<SWRResponse<H["data"], any>>;
-  }): SWRResponse<H["data"], any>;
+  }): () => SWRResponse<H["data"], any>;
 };
 
 export type Hook = MutationHook | SWRHook;
