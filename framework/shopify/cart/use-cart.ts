@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React from "react";
 import useCart, { UseCart } from "@common/cart/use-cart";
 import {
