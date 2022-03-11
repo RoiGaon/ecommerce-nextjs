@@ -1,27 +1,26 @@
-import { ButtonHTMLAttributes, FC, ReactNode } from "react"
-import s from "./Button.module.css"
-import cn from "classnames"
+import { ButtonHTMLAttributes, FC, ReactNode } from "react";
+import s from "./Button.module.css";
+import cn from "classnames";
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode | ReactNode[]
+  children: ReactNode | ReactNode[];
+  isLoading?: boolean;
 }
 
 const Button: FC<Props> = ({
   children,
   className,
+  isLoading = false,
   ...rest
 }) => {
-
+  const rootClassName = cn(s.root, className, { [s.loading]: isLoading });
 
   return (
-    <button
-      className={cn(s.root, className)}
-      type="button"
-      {...rest}
-    >
+    <button className={rootClassName} type="button" {...rest}>
       {children}
+      {isLoading && <div className="ml-3">Loading...</div>}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;
