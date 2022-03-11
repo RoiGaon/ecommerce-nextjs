@@ -1,5 +1,5 @@
 const getProductQuery = `
-query productByHandle($slug: String) {
+query productByHandle($slug: String!) {
   productByHandle(handle: $slug) {
     id
     handle
@@ -63,6 +63,6 @@ query productByHandle($slug: String) {
     }
   }
 }
-`
+`;
 
-export default getProductQuery
+export default getProductQuery;
