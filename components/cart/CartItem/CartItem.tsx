@@ -22,10 +22,10 @@ const CartItem = ({
   const price = item.variant.price! * item.quantity || 0;
   const { options } = item;
 
-  const handleQuantityChange = async (val: number) => {
+  const handleQuantityChange = (val: number) => {
     if (Number.isInteger(val) && val >= 0) {
       setQuantity(val);
-      await updateItem({
+      updateItem({
         id: item.id,
         variantId: item.variantId,
         quantity: val,
