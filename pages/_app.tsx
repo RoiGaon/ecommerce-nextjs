@@ -1,7 +1,10 @@
 import React from "react";
+// Next
+import type { AppProps } from "next/app";
+// Styles
 import "@assets/main.css";
 import "keen-slider/keen-slider.min.css";
-import type { AppProps } from "next/app";
+// Components
 import { UIProvider } from "@components/ui/context";
 
 const Noop: React.FC = ({ children }) => <>{children}</>;

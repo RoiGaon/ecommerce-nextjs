@@ -1,4 +1,5 @@
 import React from "react";
+// Components
 import { Heart } from "@components/icons";
 import { Layout } from "@components/common";
 import { Container } from "@components/ui";

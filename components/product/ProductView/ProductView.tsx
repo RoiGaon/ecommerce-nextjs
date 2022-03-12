@@ -1,25 +1,29 @@
-import cn from "classnames";
-import { FC, useState } from "react";
-import s from "./ProductView.module.css";
-import { Container, Button } from "@components/ui";
+import React from "react";
+// Next
 import Image from "next/image";
+// Styles
+import cn from "classnames";
+import s from "./ProductView.module.css";
+// Components
+import { Container, Button } from "@components/ui";
 import { Product } from "@common/types/product";
 import { ProductSlider, Swatch } from "@components/product";
-import { Choices, getVariant } from "../helpers";
 import { useUI } from "@components/ui/context";
+// Helpers
+import { Choices, getVariant } from "../helpers";
+// Framework - logic
 import useAddItem from "@framework/cart/use-add-item";
 interface Props {
   product: Product;
 }
 
-const ProductView: FC<Props> = ({ product }) => {
-  const [choices, setChoices] = useState<Choices>({});
-  const [isLoading, setIsLoading] = useState(false);
+const ProductView: React.FC<Props> = ({ product }) => {
+  const [choices, setChoices] = React.useState<Choices>({});
+  const [isLoading, setIsLoading] = React.useState(false);
   const { openSidebar } = useUI();
   const addItem = useAddItem();
 
   const variant = getVariant(product, choices);
-  console.log(variant);
 
   const addToCart = async () => {
     try {

@@ -1,20 +1,12 @@
-import { ReactNode, FC, ComponentType, HTMLAttributes } from "react";
-
+import React from "react";
 
 interface Props {
-  children: ReactNode | ReactNode[]
-  el?: ComponentType<HTMLAttributes<HTMLElement>>
+  children: React.ReactNode | React.ReactNode[];
+  el?: React.ComponentType<React.HTMLAttributes<HTMLElement>>;
 }
 
-
-const Container: FC<Props> = ({ children, el: Component = "div" }) => {
-
-  return (
-    <Component
-      className="px-6 mx-auto max-w-8xl">
-      {children}
-    </Component>
-  )
-}
+const Container: React.FC<Props> = ({ children, el: Component = "div" }) => {
+  return <Component className="px-6 mx-auto max-w-8xl">{children}</Component>;
+};
 
 export default Container;

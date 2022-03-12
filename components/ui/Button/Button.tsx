@@ -1,16 +1,18 @@
-import { ButtonHTMLAttributes, FC, ReactNode } from "react";
+import React from "react";
+// Styles
 import s from "./Button.module.css";
 import cn from "classnames";
+// Components
 import { LoadingDots } from "@components/ui";
 
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode | ReactNode[];
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode | React.ReactNode[];
   isLoading?: boolean;
   Component?: string | React.ComponentType<React.HTMLAttributes<HTMLElement>>;
   href?: string;
 }
 
-const Button: FC<Props> = ({
+const Button: React.FC<Props> = ({
   children,
   className,
   isLoading = false,

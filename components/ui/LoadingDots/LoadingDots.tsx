@@ -1,3 +1,5 @@
+import React from "react";
+// Styles
 import s from "./LoadingDots.module.css";
 
 const LoadingDots: React.FC = () => {

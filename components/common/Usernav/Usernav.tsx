@@ -1,12 +1,16 @@
-import { FC } from "react";
-import s from "./Usernav.module.css";
+import React from "react";
+// Next
 import Link from "next/link";
+// Styles
+import s from "./Usernav.module.css";
+// Components
 import { Bag as Cart, Heart } from "@components/icons";
 import { useUI } from "@components/ui/context";
-import useCart from "@framework/cart/use-cart";
 import { LineItem } from "@common/types/cart";
+// Framework - logic
+import useCart from "@framework/cart/use-cart";
 
-const Usernav: FC = () => {
+const Usernav: React.FC = () => {
   const { openSidebar } = useUI();
   const { data } = useCart();
   const itemsCount =

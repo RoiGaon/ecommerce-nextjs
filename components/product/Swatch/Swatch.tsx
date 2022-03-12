@@ -1,7 +1,10 @@
-import { FC } from "react";
+import React from "react";
+// Styles
 import s from "./Swatch.module.css";
-import { Check } from "@components/icons";
 import cn from "classnames";
+// Components
+import { Check } from "@components/icons";
+// Helpers
 import { isDark } from "@lib/color";
 
 interface Props {
@@ -13,7 +16,7 @@ interface Props {
   onClick: () => void;
 }
 
-const Swatch: FC<Props> = ({
+const Swatch: React.FC<Props> = ({
   color,
   label,
   variant,

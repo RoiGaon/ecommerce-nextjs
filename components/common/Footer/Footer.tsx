@@ -1,4 +1,6 @@
-export const Footer = () => {
+import React from "react";
+
+export const Footer: React.FC = () => {
   return (
     <footer className="bg-black pt-1">
       <div className="container mx-auto px-6">
@@ -11,7 +13,7 @@ export const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

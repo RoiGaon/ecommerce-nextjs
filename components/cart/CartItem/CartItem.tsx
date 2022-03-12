@@ -1,21 +1,24 @@
 import React from "react";
-import cn from "classnames";
-import Image from "next/image";
+// Next
 import Link from "next/link";
+import Image from "next/image";
+// Styles
+import cn from "classnames";
 import s from "./CartItem.module.css";
+// Components
 import { Trash, Plus, Minus } from "@components/icons";
 import { LineItem } from "@common/types/cart";
 import { Swatch } from "@components/product";
+// Framework - logic
 import useRemoveItem from "@framework/cart/use-remove-item";
 import useUpdateItem from "@framework/cart/use-update-item";
 
-const CartItem = ({
-  item,
-  currencyCode,
-}: {
+interface Props {
   item: LineItem;
   currencyCode: string;
-}) => {
+}
+
+const CartItem: React.FC<Props> = ({ item, currencyCode }) => {
   const removeItem = useRemoveItem();
   const updateItem = useUpdateItem();
   const [quantity, setQuantity] = React.useState(item.quantity);
@@ -42,6 +45,7 @@ const CartItem = ({
     const val = Number(quantity) + n;
     handleQuantityChange(val);
   };
+
   return (
     <li
       className={cn("flex flex-row space-x-8 py-8", {
